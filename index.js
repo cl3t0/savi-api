@@ -1,17 +1,20 @@
+// Importing some important libs
 const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 
 
-// Iniciando o app
+// Initializing the app using express
 const app = express();
+// Enabling to use json
 app.use(express.json());
 
-// Iniciando o DB
-mongoose.connect('mongodb://localhost:27017/saveapi', { useNewUrlParser: true });
+// Initializing database
+mongoose.connect('mongodb://localhost:27017/savi', { useNewUrlParser: true });
+// Importing models from the model's folder
 requireDir('./src/models');
 
-// Rotas
+// Routes
 app.use('/api', require('./src/routes'));
-
-app.listen(80);
+// Choosing the port to listen
+app.listen(3001);

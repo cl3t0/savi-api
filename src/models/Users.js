@@ -1,26 +1,38 @@
 // Importing mongoose to create the table
 const mongoose = require('mongoose');
 // Creating table schema
-const ResourcesSchema = new mongoose.Schema({
+const UsersSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
     },
-    latitude: {
-        type: Number,
+    birth: {
+        type: Date,
         required: true,
     },
-    longitude: {
-        type: Number,
-        required: true,
-    },
-    type: { // This needs to be something like "water, medicine, food..."
+    profession: {
         type: String,
         required: true,
     },
-    description: {
+    email: {
         type: String,
         required: true,
+    },
+    phone: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    email_confirmation: {
+        type: Number,
+        default: 0,
+    },
+    logged: {
+        type: Number,
+        default: 0,
     },
     createdAt: {
         type: Date,
@@ -28,4 +40,4 @@ const ResourcesSchema = new mongoose.Schema({
     }
 });
 // Adding the new table if it doesn't exist
-mongoose.model('Resources', ResourcesSchema);
+mongoose.model('Users', UsersSchema);
